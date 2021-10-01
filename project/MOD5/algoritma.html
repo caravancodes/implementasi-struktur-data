@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>algoritma.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.ST1 {color: #009900}
+.ST2 {color: #009900; font-family: Monospaced; font-style: italic}
+.ST3 {font-family: Monospaced; font-style: italic}
+.literal {color: #0000e6}
+.ST4 {color: #ce7b00; font-family: Monospaced; font-weight: bold}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">C:\Users\Faisal Amir\Documents\NetBeansProjects\belajar\src\belajar\algoritma.java</td></tr></table>
+<pre>
+ 1 <span class="literal">package</span> belajar;
+ 2 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">algoritma</span>&lt;T&gt; <span class="literal">implements</span> QueueInterface&lt;T&gt; {
+ 3     <span class="literal">private</span> <span class="literal">class</span> <span class="ST0">Node</span> {       
+ 4         <span class="comment">//contruct Node</span>
+ 5        <span class="literal">private</span> T <span class="ST1">data</span>;
+ 6        <span class="literal">private</span> Node <span class="ST1">next</span>;
+ 7        <span class="comment">//generate constructor</span>
+ 8         <span class="literal">public</span> <span class="ST0">Node</span>(T data) {
+ 9             <span class="literal">this</span>.<span class="ST1">data</span> = data;
+10         }
+11         <span class="literal">public</span> <span class="ST0">Node</span>(T data, Node next) {
+12             <span class="literal">this</span>.<span class="ST1">data</span> = data;
+13             <span class="literal">this</span>.<span class="ST1">next</span> = next;
+14         }
+15         <span class="literal">public</span> T <span class="ST0">getData</span>() {
+16             <span class="literal">return</span> <span class="ST1">data</span>;
+17         }
+18     }
+19     <span class="literal">private</span> Node <span class="ST1">Front</span>;
+20     <span class="literal">private</span> Node <span class="ST1">Rear</span>;
+21     <span class="literal">private</span> <span class="literal">int</span> <span class="ST1">size</span>;
+22     <span class="comment">//generate implements</span>
+23     <span class="literal">public</span> <span class="ST0">algoritma</span>() {
+24         <span class="literal">this</span>.<span class="ST1">Front</span> = <span class="literal">null</span>;
+25         <span class="literal">this</span>.<span class="ST1">Rear</span> = <span class="literal">null</span>;
+26         <span class="literal">this</span>.<span class="ST1">size</span> = 0;
+27     }
+28     @Override
+29     <span class="literal">public</span> <span class="literal">boolean</span> <span class="ST0">isEmpty</span>() {
+30         <span class="literal">if</span> (<span class="ST1">Front</span> == <span class="literal">null</span>) {
+31             <span class="literal">return</span> <span class="literal">true</span>;
+32         } <span class="literal">else</span> {
+33             <span class="literal">return</span> <span class="literal">false</span>;
+34         }
+35     }
+36     @Override
+37     <span class="literal">public</span> <span class="literal">int</span> <span class="ST0">size</span>() {
+38         <span class="literal">return</span> <span class="ST1">size</span>;
+39     }
+40     @Override
+41     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">enQueue</span>(T data) {
+42        Node NewNode = <span class="literal">new</span> Node(data);
+43        <span class="literal">if</span> (isEmpty()) {
+44            <span class="ST1">Front</span> = NewNode;
+45            <span class="ST1">Rear</span> = NewNode;
+46            <span class="ST1">size</span>++;
+47        } <span class="literal">else</span> {
+48            <span class="ST1">Rear</span>.<span class="ST1">next</span> = NewNode;
+49            <span class="ST1">Rear</span> = NewNode;
+50            <span class="ST1">size</span>++;
+51        }
+52     }
+53     @Override
+54     <span class="literal">public</span> T <span class="ST0">deQueue</span>() {
+55         Node Temp = <span class="literal">null</span>;
+56         <span class="literal">if</span> (isEmpty()) {
+57             System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">DATA KOSONG</span><span class="string">&quot;</span>);
+58         } <span class="literal">else</span> {
+59             Temp = <span class="ST1">Front</span>;
+60             <span class="ST1">Front</span> = <span class="ST1">Front</span>.<span class="ST1">next</span>;
+61             Temp.<span class="ST1">next</span> = <span class="literal">null</span>;
+62             <span class="ST1">size</span>--;
+63         }
+64         <span class="literal">return</span> Temp.<span class="ST1">data</span>;
+65     } 
+66     @Override
+67     <span class="literal">public</span> T <span class="ST0">first</span>() {
+68        <span class="literal">return</span> <span class="ST1">Front</span>.<span class="ST1">data</span>;
+69     }
+70     @Override
+71     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">hapusAntrian</span>() {
+72       <span class="literal">while</span> (!isEmpty()){
+73         Node Temp = <span class="ST1">Front</span>;
+74         <span class="ST1">Front</span> = <span class="ST1">Front</span>.<span class="ST1">next</span>;
+75         Temp.<span class="ST1">next</span> = <span class="literal">null</span>;
+76         <span class="ST1">size</span>--;
+77       }
+78     }
+79     @Override
+80     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">view</span>() {
+81         Node Temp = <span class="ST1">Front</span>;
+82         Belajar.<span class="ST3">sepatu</span> out = (Belajar.<span class="ST3">sepatu</span>) Temp.<span class="ST1">data</span>;
+83         <span class="literal">for</span> (<span class="literal">int</span> i = 0 ; i &lt; <span class="ST1">size</span> ; i++) {
+84             System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">===========================</span><span class="ST4">\n</span><span class="string">Sepatu ke </span><span class="string">&quot;</span> +(i+1) + <span class="string">&quot;</span><span class="string"> :</span><span class="string">&quot;</span>);
+85             System.<span class="ST2">out</span>.println(Temp.<span class="ST1">data</span>);
+86             Temp = Temp.<span class="ST1">next</span>;
+87         }
+88     }
+89 }
+</pre></body>
+</html>

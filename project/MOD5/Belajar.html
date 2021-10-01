@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Belajar.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.ST3 {color: #009900}
+.comment {color: #969696}
+.ST2 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.ST1 {color: #009900; font-family: Monospaced; font-style: italic}
+.ST5 {font-family: Monospaced; font-style: italic}
+.literal {color: #0000e6}
+.ST4 {color: #ce7b00; font-family: Monospaced; font-weight: bold}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">C:\Users\Faisal Amir\Documents\NetBeansProjects\belajar\src\belajar\Belajar.java</td></tr></table>
+<pre>
+ 1 <span class="literal">package</span> belajar;
+ 2 <span class="literal">import</span> java.util.*;
+ 3 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">Belajar</span> {
+ 4     <span class="literal">static</span> String <span class="ST1">kode</span>, <span class="ST1">nama</span>, <span class="ST1">merk</span>, <span class="ST1">color</span>;
+ 5     <span class="literal">static</span> <span class="literal">int</span> <span class="ST1">jumlah</span>;
+ 6     <span class="literal">static</span> Scanner <span class="ST1">in</span> = <span class="literal">new</span> Scanner (System.<span class="ST1">in</span>);
+ 7     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">class</span> <span class="ST2">sepatu</span> {
+ 8     String <span class="ST3">kodeSepatu</span>, <span class="ST3">namaSepatu</span>, <span class="ST3">merkSepatu</span>, <span class="ST3">warna</span>;
+ 9     <span class="literal">int</span> <span class="ST3">stok</span>;
+10         <span class="literal">public</span> <span class="ST0">sepatu</span>(String kodeSepatu, String namaSepatu, String merkSepatu, String warna, <span class="literal">int</span> stok) {
+11             <span class="literal">this</span>.<span class="ST3">kodeSepatu</span> = kodeSepatu;
+12             <span class="literal">this</span>.<span class="ST3">namaSepatu</span> = namaSepatu;
+13             <span class="literal">this</span>.<span class="ST3">merkSepatu</span> = merkSepatu;
+14             <span class="literal">this</span>.<span class="ST3">warna</span> = warna;
+15             <span class="literal">this</span>.<span class="ST3">stok</span> = stok;
+16         }
+17         @Override
+18         <span class="literal">public</span> String <span class="ST0">toString</span>() {
+19             <span class="literal">return</span> <span class="string">&quot;</span><span class="string">Kode Sepatu</span><span class="ST4">\t</span><span class="string"> : </span><span class="string">&quot;</span> + <span class="ST3">kodeSepatu</span> +
+20                     <span class="string">&quot;</span><span class="ST4">\n</span><span class="string">Nama Sepatu</span><span class="ST4">\t</span><span class="string"> : </span><span class="string">&quot;</span> + <span class="ST3">namaSepatu</span> +
+21                     <span class="string">&quot;</span><span class="ST4">\n</span><span class="string">Merk Sepatu</span><span class="ST4">\t</span><span class="string"> : </span><span class="string">&quot;</span> + <span class="ST3">merkSepatu</span> +
+22                     <span class="string">&quot;</span><span class="ST4">\n</span><span class="string">Stok</span><span class="ST4">\t</span><span class="ST4">\t</span><span class="string"> : </span><span class="string">&quot;</span> + <span class="ST3">stok</span> +
+23                     <span class="string">&quot;</span><span class="ST4">\n</span><span class="string">Warna</span><span class="ST4">\t</span><span class="ST4">\t</span><span class="string"> : </span><span class="string">&quot;</span> + <span class="ST3">warna</span>;
+24         }
+25     }
+26     <span class="literal">void</span> <span class="ST0">menu</span> () {
+27         System.<span class="ST1">out</span>.println(<span class="string">&quot;</span><span class="string">--TOKO SEPATU--</span><span class="string">&quot;</span>);
+28         System.<span class="ST1">out</span>.println(<span class="string">&quot;</span><span class="string">1. Masukkan Sepatu</span><span class="string">&quot;</span>);
+29         System.<span class="ST1">out</span>.println(<span class="string">&quot;</span><span class="string">2. Lihat Daftar</span><span class="string">&quot;</span>);
+30         System.<span class="ST1">out</span>.println(<span class="string">&quot;</span><span class="string">3. Masukkan Gudang</span><span class="string">&quot;</span>);
+31         System.<span class="ST1">out</span>.println(<span class="string">&quot;</span><span class="string">4. Bersihkan Antrian</span><span class="string">&quot;</span>);
+32         System.<span class="ST1">out</span>.println(<span class="string">&quot;</span><span class="string">5. EXIT</span><span class="string">&quot;</span>);
+33         System.<span class="ST1">out</span>.println(<span class="string">&quot;</span><span class="string">-------------------------</span><span class="string">&quot;</span>);
+34     }   
+35     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) {
+36         QueueInterface&lt;<span class="ST5">sepatu</span>&gt; panggilan = <span class="literal">new</span> algoritma&lt;&gt;();  
+37         Belajar output = <span class="literal">new</span> Belajar();
+38         <span class="literal">boolean</span> loop = <span class="literal">false</span>;
+39         <span class="literal">do</span> {
+40             output.menu();
+41             System.<span class="ST1">out</span>.print(<span class="string">&quot;</span><span class="string">Pilihan : </span><span class="string">&quot;</span>);
+42             <span class="literal">int</span> menu = <span class="ST1">in</span>.nextInt();
+43             <span class="literal">switch</span>(menu) {
+44                 <span class="literal">case</span> 1 :
+45                     System.<span class="ST1">out</span>.println(<span class="string">&quot;</span><span class="string">Masukkan Data Barang</span><span class="string">&quot;</span>);
+46                     <span class="ST1">in</span>.nextLine();
+47                     System.<span class="ST1">out</span>.print(<span class="string">&quot;</span><span class="string">Kode Sepatu</span><span class="ST4">\t</span><span class="string">: </span><span class="string">&quot;</span>);
+48                     <span class="ST1">kode</span> = <span class="ST1">in</span>.nextLine();
+49                     System.<span class="ST1">out</span>.print(<span class="string">&quot;</span><span class="string">Nama Sepatu</span><span class="ST4">\t</span><span class="string">: </span><span class="string">&quot;</span>);
+50                     <span class="ST1">nama</span> = <span class="ST1">in</span>.nextLine();
+51                     System.<span class="ST1">out</span>.print(<span class="string">&quot;</span><span class="string">Merk Sepatu</span><span class="ST4">\t</span><span class="string">: </span><span class="string">&quot;</span>);
+52                     <span class="ST1">merk</span> = <span class="ST1">in</span>.nextLine();
+53                     System.<span class="ST1">out</span>.print(<span class="string">&quot;</span><span class="string">Warna</span><span class="ST4">\t</span><span class="ST4">\t</span><span class="string">: </span><span class="string">&quot;</span>);
+54                     <span class="ST1">color</span> = <span class="ST1">in</span>.nextLine();
+55                     System.<span class="ST1">out</span>.print(<span class="string">&quot;</span><span class="string">Stok</span><span class="ST4">\t</span><span class="ST4">\t</span><span class="string">: </span><span class="string">&quot;</span>);
+56                     <span class="ST1">jumlah</span> = <span class="ST1">in</span>.nextInt();
+57                     System.<span class="ST1">out</span>.println();
+58                     <span class="comment">//Deklarasi class sepatu</span>
+59                     <span class="ST5">sepatu</span> panggil = <span class="literal">new</span> sepatu(<span class="ST1">kode</span>,<span class="ST1">nama</span>,<span class="ST1">merk</span>,<span class="ST1">color</span>,<span class="ST1">jumlah</span>);
+60                     panggilan.enQueue(panggil);    
+61                     <span class="literal">break</span>;
+62                 <span class="literal">case</span> 2 :
+63                     panggilan.view();
+64                     <span class="literal">break</span>;
+65                 <span class="literal">case</span> 3 :
+66                     panggilan.deQueue();
+67                     <span class="literal">break</span>;
+68                 <span class="literal">case</span> 4 :
+69                     panggilan.hapusAntrian();
+70                     <span class="literal">break</span>;
+71                 <span class="literal">case</span> 5 :
+72                     loop = <span class="literal">true</span>;
+73                     <span class="literal">break</span>;
+74                 <span class="literal">default</span> :
+75                     loop = <span class="literal">true</span>;
+76                     <span class="literal">break</span>;
+77             }
+78         } <span class="literal">while</span>(loop == <span class="literal">false</span>);
+79     }
+80 }    
+</pre></body>
+</html>

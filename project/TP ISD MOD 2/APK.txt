@@ -1,0 +1,9 @@
+Tata Cara Pengumpulan : 
+1. Tutup Android Studio.
+2. Buka folder project kamu, kemudian masuklah ke folder app ? build ? outputs ? apk.
+3. Cari file app-debug.apk, lalu ubah namanya menjadi NIM.apk
+4. Pindahkan file NIM.apk tersebut ke folder app.
+5. Hapus folder build yang ada di folder app.
+6. Hapus folder build yang ada di folder project.
+7. Kompres project kamu menjadi file RAR/ZIP, beri nama “Jurnal01 - NIM Nama.zip”
+8. Unggah file ZIP tadi ke IMPULSE.
